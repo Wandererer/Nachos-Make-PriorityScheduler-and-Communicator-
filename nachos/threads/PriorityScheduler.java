@@ -244,7 +244,7 @@ public class PriorityScheduler extends Scheduler {
 	 *
 	 * @param	priority	the new priority.
 	 */
-	public void setPriority(int priority) {	//우선순위를 설정하는 메소드	-jmh
+	public void setPriority(int priority) {	//우선순위를 설정하는 메소드	  
 	    if (this.priority == priority)	//설정하고자 하는 우선순위가 현재 우선순위랑 같으면 그대로 return한다.	  
 		return;
 	    
@@ -295,7 +295,7 @@ public class PriorityScheduler extends Scheduler {
 				ThreadState temp = getThreadState(comp);	//PrioritywaitQueue안에 있는 스레드중 하나의 상태를 가져온다.	  
 				int compareP = temp.getEffectivePriority();		//비교할 스레드의 계산용 우선순위를 가져온다.	  
 				
-				if(compareP > highestPriority)	//수행이 필요한 스레드의 우선순위보다 PrioritywaitQueue에 있는 스레드의 우선순위가 높으면	-jmh
+				if(compareP > highestPriority)	//수행이 필요한 스레드의 우선순위보다 PrioritywaitQueue에 있는 스레드의 우선순위가 높으면	  
 					highestPriority = compareP;		//다른스레드보다 높은 우선순위를 저장하는 highestPriority를 비교대상의 스레드의 우선순위로 바꿔준다.	  
 			}
 			
@@ -326,8 +326,8 @@ public class PriorityScheduler extends Scheduler {
     	public void run() {
     		lock.acquire();		//lock을 획득	  
     		
-    		PriorityLockTest testThread2 = new PriorityLockTest("testThread 2", lock);	//lock을 요청하는 testThread2 스레드 생성	-jmh
-    		PriorityTest testThread3 = new PriorityTest("testThread 3");	//lock을 요청하지 않는 testThread3 스레드 생성	-jmh
+    		PriorityLockTest testThread2 = new PriorityLockTest("testThread 2", lock);	//lock을 요청하는 testThread2 스레드 생성	  
+    		PriorityTest testThread3 = new PriorityTest("testThread 3");	//lock을 요청하지 않는 testThread3 스레드 생성	  
     		
     		KThread two = new KThread(testThread2).setName("testThread 2");	//lock을 요청하는 스레드 생성	  
     		KThread three = new KThread(testThread3).setName("testThread 3");	//lock을 요청하지 않는 스레드 생성	  
